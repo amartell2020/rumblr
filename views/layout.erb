@@ -7,13 +7,14 @@
   </head>
   <body>
     <nav>
+      <a href="/" style="float:left"><img style="height:50px" src="https://image.flaticon.com/icons/svg/25/25694.svg" alt="Home Page"></a>
       <% if session[:user_id] %>
-      <form action="/logout" method="post">
+      <form style="float:right" action="/logout" method="post">
         <input type="submit"value="Log Out">
       </form>
       <% end %>
-      <% if request.path == '/' %>
-      <ul>
+      <% if request.path == '/' || request.path == '/logout' %>
+      <ul style="float:right">
         <li><a href="/signup">Sign up</a></li>
         <li><a href="/login">Login</a></li>
       </ul>

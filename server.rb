@@ -12,7 +12,11 @@ class User < ActiveRecord::Base
 end
 
 get '/' do
-  erb :home
+  if session[:user_id]
+    redirect "/feed"
+  else
+    erb :home
+  end
 end
 
 get '/signup' do
@@ -34,7 +38,7 @@ end
 
 get '/login' do
   if session[:user_id]
-    redirect "/"
+    redirect "/feed"
   else
     erb :login
   end
@@ -47,11 +51,16 @@ post "/login" do
     if user.password == given_password
       p "User authenticated succesfuly"
       session[:user_id] = user.id
-      redirect "/dash"
+      redirect "/feed"
     else
-      p "Invalid email or password"
+      p "Wrong credentials entered"
+      redirect "/login"
     end
   end
+end
+
+get "/feed" do
+  erb :feed
 end
 
 post "/logout" do
