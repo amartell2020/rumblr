@@ -6,6 +6,19 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
+    <nav>
+      <% if session[:user_id] %>
+      <form action="/logout" method="post">
+        <input type="submit"value="Log Out">
+      </form>
+      <% end %>
+      <% if request.path == '/' %>
+      <ul>
+        <li><a href="/signup">Sign up</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>

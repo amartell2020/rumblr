@@ -47,7 +47,7 @@ post "/login" do
     if user.password == given_password
       p "User authenticated succesfuly"
       session[:user_id] = user.id
-      redirect "/"
+      redirect "/dash"
     else
       p "Invalid email or password"
     end

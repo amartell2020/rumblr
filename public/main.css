@@ -1,0 +1,9 @@
+nav {
+  float: right;
+}
+
+li {
+  display: inline;
+  text-decoration: none;
+  list-style: none;
+}
