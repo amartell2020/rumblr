@@ -1,14 +1,14 @@
 <h1>Sign Up</h1>
-<form action="index.html" method="post">
+<form id="signup" action="/signup" method="post">
   <label>First Name</label><br>
-  <input type="text" name="first_name"><br>
+  <input type="text" name="first_name" required="true"><br>
   <label>Last Name</label><br>
-  <input type="text" name="last_name"><br>
+  <input type="text" name="last_name" required="true"><br>
   <label>Enter your date of birth</label><br>
-  <input type="date" name="bday"><br>
+  <input type="date" name="birthday" required="true"><br>
   <label>Email</label><br>
-  <input type="email" name="email" value="Enter your email"><br>
-  <label>Email</label><br>
-  <input type="password" name="psw"><br>
+  <input type="email" name="email" value="Enter your email" required="true"><br>
+  <label>Password</label><br>
+  <input type="password" name="password" required="true"><br>
   <input type="submit">
 </form>

@@ -1,3 +1,9 @@
-<h1>Testing</h1>
-<a href="/signup">Sign Up</a>
-<a href="/login">Log In</a>
+<h1>Welcome to my website</h1>
+<% if session[:user_id] %>
+<form action="/logout" method="post">
+  <input type="submit"value="Log Out">
+</form>
+<% else %>
+<a href="/login">Login</a>
+<a href="/signup">Signup</a>
+<% end %>
