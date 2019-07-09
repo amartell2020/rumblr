@@ -3,11 +3,11 @@ require "sinatra/activerecord"
 
 #LOCAL
 # ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: './database.sqlite3')
+# set :database, {adapter: "sqlite3", database: "./database.sqlite3"}
+
 #HEROKU
 require "active_record"
 ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
-
-# set :database, {adapter: "sqlite3", database: "./database.sqlite3"}
 
 enable :sessions
 
