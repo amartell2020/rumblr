@@ -20,8 +20,12 @@ get '/' do
 end
 
 get '/signup' do
-  @user = User.new
-  erb :signup
+  if session[:user_id]
+    redirect "/feed"
+  else
+    @user = User.new
+    erb :signup
+  end
 end
 
 post "/signup" do
@@ -60,10 +64,18 @@ post "/login" do
 end
 
 get "/feed" do
-  erb :feed
+  if session[:user_id]
+    erb :feed
+  else
+    redirect "/"
+  end
 end
 
 post "/logout" do
   session.clear
   p "You have been logged out"
+end
+
+get "/profile" do
+  erb :profile
 end

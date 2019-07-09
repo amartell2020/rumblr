@@ -10,8 +10,9 @@
       <a href="/" style="float:left"><img style="height:50px" src="https://image.flaticon.com/icons/svg/25/25694.svg" alt="Home Page"></a>
       <% if session[:user_id] %>
       <form style="float:right" action="/logout" method="post">
-        <input type="submit"value="Log Out">
+        <input id="pp" type="image" src="https://cdn1.iconfinder.com/data/icons/door-3/200/1333_door-512.png">
       </form>
+      <a style="float:right" href="/profile"><img id="pp" src="https://cdn2.iconfinder.com/data/icons/business-management-52/96/Artboard_20-512.png" alt=""></a>
       <% end %>
       <% if request.path == '/' || request.path == '/logout' %>
       <ul style="float:right">

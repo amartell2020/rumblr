@@ -24,3 +24,8 @@ li a {
   text-align: center;
   text-decoration: none;
 }
+
+#pp {
+  height: 40px;
+  padding: 5px;
+}
