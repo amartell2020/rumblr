@@ -7,7 +7,7 @@ require "sinatra/activerecord"
 
 #HEROKU
 require "active_record"
-ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
+ActiveRecord::Base.establish_connection(ENV["postgres://cmgccubjdpzqod:99d344e5c40a93b5fbe50724ebb40fc0d0a5bf7f65ad147c545d5077185aed6b@ec2-174-129-229-106.compute-1.amazonaws.com:5432/d3n6s0ulol1jq"])
 
 enable :sessions
 
