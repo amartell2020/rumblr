@@ -2,21 +2,20 @@ require "sinatra"
 require "sinatra/activerecord"
 
 #LOCAL
-# ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: './database.sqlite3')
-# set :database, {adapter: "sqlite3", database: "./database.sqlite3"}
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: './database.sqlite3')
+set :database, {adapter: "sqlite3", database: "./database.sqlite3"}
 
 #HEROKU
-require "active_record"
-ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
+# require "active_record"
+# ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
 
 enable :sessions
 
 class User < ActiveRecord::Base
-  attr_accessor :birthday
 end
 
 get '/' do
-  if session[:user_id]
+  if session[:user]
     redirect "/feed"
   else
     erb :home
@@ -24,7 +23,7 @@ get '/' do
 end
 
 get '/signup' do
-  if session[:user_id]
+  if session[:user]
     redirect "/feed"
   else
     @user = User.new
@@ -45,7 +44,7 @@ get "/thanks" do
 end
 
 get '/login' do
-  if session[:user_id]
+  if session[:user]
     redirect "/feed"
   else
     erb :login
@@ -58,7 +57,7 @@ post "/login" do
   if user
     if user.password == given_password
       p "User authenticated succesfuly"
-      session[:user_id] = user.id
+      session[:user] = user.id
       redirect "/feed"
     else
       p "Wrong credentials entered"
@@ -68,7 +67,7 @@ post "/login" do
 end
 
 get "/feed" do
-  if session[:user_id]
+  if session[:user]
     erb :feed
   else
     redirect "/"
@@ -81,5 +80,6 @@ post "/logout" do
 end
 
 get "/profile" do
+  @user = User.find_by(id: session[:user])
   erb :profile
 end
