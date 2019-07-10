@@ -1,3 +1,8 @@
+function put() {
+  document.getElementById('textpost').classList.remove('hidden')
+}
+
+
 var myIndex = 0;
 carousel();
 
@@ -12,9 +17,3 @@ function carousel() {
   x[myIndex-1].style.display = "block";
   setTimeout(carousel, 2000);
 }
-
-function validation() {
-  if (document.myform.email.value == "") {
-    document.getElementsByClass('ins').innerHTML ="Invalid information";
-     return false;
-}}

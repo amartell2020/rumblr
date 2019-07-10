@@ -1,4 +1,5 @@
 body {
+  cursor: url('/cursor.cur'), auto;
   font-family: Helvetica ;
   color: white;
   text-align: center;
@@ -14,10 +15,11 @@ nav {
 
 ul {
   overflow: hidden;
+  margin-right: 1%;
 }
 
 li {
-  border-left: 1px solid white;
+  border-right: 1px solid white;
   padding: 15px 30px;
   list-style-type: none;
   margin: 0;
@@ -63,4 +65,32 @@ li a {
 .ins {
   width: 35%;
   margin: 1%;
+}
+
+#text {
+  padding: 1.5%;
+  float: right;
+  display: inline-block;
+}
+
+#text img {
+  background-color: #fff;
+  height: 7vh;
+  width: 7vh;
+  border-radius: 20%;
+}
+
+#feed {
+  position: relative;
+  margin-left: 7%;
+  height: 89vh;
+  width: 70%;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  border-radius: 20%;
 }
