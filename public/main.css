@@ -1,3 +1,10 @@
+body {
+  font-family: Helvetica ;
+  color: white;
+  text-align: center;
+  background: #001957;
+}
+
 nav {
   width: 100%;
   background-color: rgb(0, 103, 170);
@@ -25,7 +32,35 @@ li a {
   text-decoration: none;
 }
 
+#errors {
+  color: white;
+}
+
+#container {
+  text-align: center;
+}
+
+#slideshow {
+  display: inline-block;
+  width: 60%;
+}
+
+.mySlides {
+  width:100%;
+  height: 450px;
+  display:none;
+}
+
 #pp {
   height: 40px;
   padding: 5px;
+}
+
+#signup {
+  width: 100%;
+}
+
+.ins {
+  width: 35%;
+  margin: 1%;
 }

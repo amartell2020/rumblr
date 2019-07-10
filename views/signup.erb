@@ -1,14 +1,15 @@
 <h1>Sign Up</h1>
-<form id="signup" action="/signup" method="post">
+<form name="myform" id="signup" action="/signup" method="get" onsubmit="validation()">
+  <div id ="errors"></div>
   <label>First Name</label><br>
-  <input type="text" name="first_name" required="true"><br>
+  <input class="ins" type="text" name="first_name"><br>
   <label>Last Name</label><br>
-  <input type="text" name="last_name" required="true"><br>
+  <input class="ins" type="text" name="last_name"><br>
   <label>Enter your date of birth</label><br>
-  <input type="date" name="birthday" required="true"><br>
+  <input class="ins" type="date" name="birthday" min="2001-07-12" max="1919-07-12"><br>
   <label>Email</label><br>
-  <input type="email" name="email" value="Enter your email" required="true"><br>
+  <input class="ins" type="email" name="email"><br>
   <label>Password</label><br>
-  <input type="password" name="password" required="true"><br>
+  <input class="ins" type="password" name="password"><br>
   <input type="submit">
 </form>
