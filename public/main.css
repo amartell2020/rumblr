@@ -81,6 +81,7 @@ li a {
 }
 
 #feed {
+  padding-top: 1%;
   position: relative;
   margin-left: 7%;
   height: 89vh;
@@ -91,8 +92,14 @@ li a {
   display: none;
 }
 
-button {
+#cp {
   border-radius: 20%;
+}
+
+#dp {
+  background-color: red;
+  color: white;
+  font-weight: bold;
 }
 
 .modal {
@@ -162,4 +169,10 @@ b {
 
 #content {
   height: 30vh;
+}
+
+.item {
+  background-color: rgb(110, 110, 110);
+  border: 1px solid black;
+  margin-bottom: 2%;
 }

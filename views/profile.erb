@@ -1,1 +1,16 @@
 <h1><%= @user.first_name %>'s Profile</h1>
+<button id="dp" type="button">Delete Profile</button>
+<div id="feed">
+  <% for n in @posts %>
+  <% if n.creator == @user.first_name %>
+  <div class="item">
+    <form style="float:left;margin-left:1%;" action="/profile" method="post">
+      <button id="dp" type="submit">Delete Post</button>
+    </form>
+    <footer style="float:right;margin-right:2%;">By <%= n.creator %></footer>
+    <h1><%= ERB::Util.html_escape(n.title) %></h1>
+    <p><%= ERB::Util.html_escape(n.content) %></p>
+  </div>
+  <% end %>
+  <% end %>
+</div>

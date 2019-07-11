@@ -1,4 +1,7 @@
 <h1>Sign Up</h1>
+<%if @alert %>
+ <p> Invalid information</p>
+<%end%>
 <form id="signup" action="/signup" method="post">
   <p id ="errors"></p>
   <label>First Name</label><br>

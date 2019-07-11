@@ -1,13 +1,17 @@
+<% require 'erb' %>
 <div id="text">
   <label>Create Post</label><br>
-  <button onclick="document.getElementById('id01').style.display='block'"><img src="https://cdn2.iconfinder.com/data/icons/squircle-ui/32/Edit-512.png"></button>
+  <button id="cp" onclick="document.getElementById('id01').style.display='block'"><img src="https://cdn2.iconfinder.com/data/icons/squircle-ui/32/Edit-512.png"></button>
 </div>
 
 <div id="feed">
-  Post
-  Post
-  Post
-  post
+  <% for n in @posts %>
+  <div class="item">
+    <footer style="float:right;margin-right:2%;">By <%= n.creator %></footer>
+    <h1><%= ERB::Util.html_escape(n.title) %></h1>
+    <p><%= ERB::Util.html_escape(n.content) %></p>
+  </div>
+  <% end %>
 </div>
 
 <div id="id01" class="modal">
@@ -19,5 +23,6 @@
       <input id="content" type="text" placeholder="Enter content of post" name="content">
     </div>
     <span style="height:4%" onclick="document.getElementById('id01').style.display='none'" class="close" title="Close text box">&times;</span>
+    <input type="submit" value="Create your post">
   </form>
 </div>

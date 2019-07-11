@@ -35,19 +35,18 @@ end
 
 post "/signup" do
   valid = true
-  valid = false if params[:first_name].gsub!(/[^0-9A-Za-z]/,'') == ''
-  valid = false if params[:last_name].gsub!(/[^0-9A-Za-z]/,'') == ''
+  valid = false if params[:first_name].gsub!(/[^0-9A-Za-z]/,'') == '' || params[:first_name] == ''
+  valid = false if params[:last_name].gsub!(/[^0-9A-Za-z]/,'') == '' || params[:last_name] == ''
   valid = false if params[:birthday] == ''
   valid = false if params[:email] == ''
   valid = false if params[:password] == ''
   valid = false if params[:password].length < 8
   if valid == false
-    p "Invalid argument"
-    break
+    @alert = true
+    erb :"/signup"
   else
     @user = User.new(params)
     if @user.save
-      p "#{@user.first_name} was saved to the database"
       redirect "/thanks"
     end
   end
@@ -80,12 +79,20 @@ post "/login" do
 end
 
 get "/feed" do
-  @post = Post.new
+  @posts = Post.all
   if session[:user]
     erb :feed
   else
     redirect "/"
   end
+end
+
+post "/feed" do
+  user = User.find_by(id: session[:user])
+  @post = Post.new(title: params[:title], content: params[:content], user_id: session[:user])
+  @post.save
+  @post.update(creator: user.first_name)
+  redirect "/feed"
 end
 
 get "/logout" do
@@ -99,5 +106,10 @@ end
 
 get "/profile" do
   @user = User.find_by(id: session[:user])
+  @posts = Post.all
   erb :profile
+end
+
+post "/profile" do
+  Posts.destroy(session[:user])
 end

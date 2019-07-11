@@ -1,8 +1,3 @@
-function put() {
-  document.getElementById('textpost').classList.remove('hidden')
-}
-
-
 var myIndex = 0;
 carousel();
 
