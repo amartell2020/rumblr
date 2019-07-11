@@ -14,6 +14,9 @@ enable :sessions
 class User < ActiveRecord::Base
 end
 
+class Post < ActiveRecord::Base
+end
+
 get '/' do
   if session[:user]
     redirect "/feed"
@@ -32,7 +35,7 @@ end
 
 post "/signup" do
   valid = true
-  valid = false if params[:first_name].gsub!(/[^0-9A-Za-z]/,'') == '' 
+  valid = false if params[:first_name].gsub!(/[^0-9A-Za-z]/,'') == ''
   valid = false if params[:last_name].gsub!(/[^0-9A-Za-z]/,'') == ''
   valid = false if params[:birthday] == ''
   valid = false if params[:email] == ''
@@ -71,13 +74,13 @@ post "/login" do
       session[:user] = user.id
       redirect "/feed"
     else
-      p "Wrong credentials entered"
       redirect "/login"
     end
   end
 end
 
 get "/feed" do
+  @post = Post.new
   if session[:user]
     erb :feed
   else

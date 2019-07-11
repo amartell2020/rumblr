@@ -17,3 +17,11 @@ function carousel() {
   x[myIndex-1].style.display = "block";
   setTimeout(carousel, 2000);
 }
+
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

@@ -1,6 +1,6 @@
 <div id="text">
   <label>Create Post</label><br>
-  <button onclick="put()"><img src="https://cdn2.iconfinder.com/data/icons/squircle-ui/32/Edit-512.png"></button>
+  <button onclick="document.getElementById('id01').style.display='block'"><img src="https://cdn2.iconfinder.com/data/icons/squircle-ui/32/Edit-512.png"></button>
 </div>
 
 <div id="feed">
@@ -10,8 +10,14 @@
   post
 </div>
 
-<div id="textpost" class ="hidden">
-  <form action="index.html" method="post">
-    <input type="text" name="" value="">
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/feed" method="post">
+    <div id="container1">
+      <label><b>Title</b></label>
+      <input style="height:200%" type="text" placeholder="Enter title for post" name="title">
+      <label><b>Content</b></label>
+      <input id="content" type="text" placeholder="Enter content of post" name="content">
+    </div>
+    <span style="height:4%" onclick="document.getElementById('id01').style.display='none'" class="close" title="Close text box">&times;</span>
   </form>
 </div>
