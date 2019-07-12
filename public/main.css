@@ -43,6 +43,7 @@ li a {
 }
 
 #slideshow {
+  border: 1px solid white;
   display: inline-block;
   width: 60%;
 }
@@ -173,7 +174,8 @@ b {
 
 .item {
   background-color: rgb(110, 110, 110);
-  border: 1px solid black;
+  border: 1px solid white;
+  border-radius: 10px;
   margin-bottom: 2%;
 }
 

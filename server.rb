@@ -111,10 +111,8 @@ get "/profile" do
 end
 
 post "/profile" do
-  @posts = Post.all
-  id = post.id
-  p = Post.find_by(id: id)
-  @posts.destroy(p)
+  @p = Post.find_by(user_id: session[:user])
+  @p.destroy()
   redirect "/profile"
 end
 
