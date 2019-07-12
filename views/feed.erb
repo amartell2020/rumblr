@@ -5,7 +5,7 @@
 </div>
 
 <div id="feed">
-  <% for n in @posts %>
+  <% for n in @posts.reverse %>
   <div class="item">
     <footer style="float:right;margin-right:2%;">By <%= n.creator %></footer>
     <h1><%= ERB::Util.html_escape(n.title) %></h1>
