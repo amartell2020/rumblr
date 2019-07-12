@@ -1,16 +1,25 @@
 <h1><%= @user.first_name %>'s Profile</h1>
-<button id="dp" type="button">Delete Profile</button>
-<div id="feed">
-  <% for n in @posts %>
-  <% if n.creator == @user.first_name %>
-  <div class="item">
-    <form style="float:left;margin-left:1%;" action="/profile" method="post">
-      <button id="dp" type="submit">Delete Post</button>
-    </form>
-    <footer style="float:right;margin-right:2%;">By <%= n.creator %></footer>
-    <h1><%= ERB::Util.html_escape(n.title) %></h1>
-    <p><%= ERB::Util.html_escape(n.content) %></p>
+<div id="prof">
+  <div id="feed">
+    <% for n in @posts %>
+    <% if n.creator == @user.first_name %>
+    <div class="item">
+      <form style="float:left;margin-left:1%;" action="/profile" method="post">
+        <button id="dp" type="submit">Delete Post</button>
+      </form>
+      <footer style="float:right;margin-right:2%;">By <%= n.creator %></footer>
+      <h1><%= ERB::Util.html_escape(n.title) %></h1>
+      <p><%= ERB::Util.html_escape(n.content) %></p>
+    </div>
+    <% end %>
+    <% end %>
   </div>
-  <% end %>
-  <% end %>
+  <form action="/delete" method="post">
+    <h1>First Name: <%= @user.first_name %></h1>
+    <h1>Last Name: <%= @user.last_name %></h1>
+    <h1>Birthday: <%= @user.birthday %></h1>
+    <h1>Email: <%= @user.email %></h1>
+    <h1>Password: <%= @user.password %></h1>
+    <button id="dp" type="submit">Delete Profile</button>
+  </form>
 </div>

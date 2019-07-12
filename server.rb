@@ -111,5 +111,20 @@ get "/profile" do
 end
 
 post "/profile" do
-  Posts.destroy(session[:user])
+  @posts = Post.all
+  id = post.id
+  p = Post.find_by(id: id)
+  @posts.destroy(p)
+  redirect "/profile"
+end
+
+post "/delete" do
+  user = User.find_by(id: session[:user])
+  user.destroy
+  session.clear
+  redirect "/terminated"
+end
+
+get "/terminated" do
+  erb :terminated
 end

@@ -176,3 +176,8 @@ b {
   border: 1px solid black;
   margin-bottom: 2%;
 }
+
+#prof {
+  display: grid;
+  grid-template: 100% / 70% 30% ;
+}
