@@ -1,11 +1,11 @@
 require "sinatra"
 require "sinatra/activerecord"
 
-if ENV['RACK_ENV']
+# if ENV['RACK_ENV']
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
-else
-  set :database, {adapter: "sqlite3", database: "database.sqlite3"}
-end
+# else
+#   set :database, {adapter: "sqlite3", database: "database.sqlite3"}
+# end
 
 enable :sessions
 
